@@ -2,7 +2,7 @@
 """
 Created on Sat Apr 10 10:30:57 2021
 
-@author: Raihan
+@author: 
 """
 
 import pandas as pd
@@ -22,6 +22,8 @@ pd.set_option('display.max_rows', None)
 
 import requests # library to handle requests
 
+from urllib.request import urlopen
+from urllib.request import Request
 
 
 app = JupyterDash(__name__)
@@ -29,7 +31,10 @@ app = JupyterDash(__name__)
 app.config.suppress_callback_exceptions = True
 
 
-state_AT = pd.read_csv('C:/Users/Raihan/Downloads/JUPYTER LAB/state_AT.csv')
+#state_AT = pd.read_csv('C:/Users/Raihan/Downloads/JUPYTER LAB/state_AT.csv')
+url = 'https://github.com/Roijin/Covid-Dash-App/blob/808bc92d8a4107a97f98ca836b5050e700aa798e/state_AT.csv?raw=true'
+
+state_AT = pd.read_csv(url)
 
 states = state_AT['code']
 cells = state_AT['Cell_Num']
